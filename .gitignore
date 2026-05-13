@@ -1,0 +1,10 @@
+node_modules/
+.env
+npm-debug.log
+yarn-error.log
+.DS_Store
+Thumbs.db
+uploads/temp/
+.cache/
+dist/
+build/
