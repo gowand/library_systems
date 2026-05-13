@@ -1,0 +1,6 @@
+<%- include("partials/header", {title: lib.name + " Etkinlikler"}) %><main class="lib-page"><%- include("partials/library-nav", {lib}) %>
+<section class="section-head"><h1>Etkinlikler</h1><p>Sayfalama ve filtreleme büyük veri için zorunludur.</p></section>
+<form class="filterbar" method="get"><input name="q" value="<%= q %>" placeholder="Etkinlik ara"><input name="category" value="<%= category %>" placeholder="Kategori"><button>Filtrele</button></form>
+<div class="event-grid"><% events.forEach(e => { %><article class="event-card"><div class="event-poster">🎫</div><span><%= e.category %></span><h3><%= e.title %></h3><p><%= e.description %></p><p><b><%= e.event_date %></b> • <%= e.event_time %></p><form method="post" action="/<%= lib.slug %>/events/<%= e.id %>/apply" class="apply-form"><input name="first_name" placeholder="Ad" required><input name="last_name" placeholder="Soyad" required><input name="phone" placeholder="05XXXXXXXXX" required><input name="age" type="number" placeholder="Yaş" required><button>Başvur</button></form></article><% }) %></div>
+<div class="pagination"><% if (page > 1) { %><a href="?page=<%= page-1 %>&q=<%= q %>&category=<%= category %>">Önceki</a><% } %><span>Sayfa <%= page %></span><a href="?page=<%= page+1 %>&q=<%= q %>&category=<%= category %>">Sonraki</a></div>
+</main><%- include("partials/footer") %>

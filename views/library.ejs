@@ -1,0 +1,7 @@
+<%- include("partials/header", {title: lib.name}) %><main class="lib-page"><%- include("partials/library-nav", {lib}) %>
+<% if (announcements.length) { %><div class="announcement">📢 <%= announcements[0].title %> — <%= announcements[0].body %></div><% } %>
+<section class="banner" style="background-position:<%= lib.banner_pos_x %>% <%= lib.banner_pos_y %>%"><div class="banner-badge"><span class="circle-logo">📚</span><b><%= lib.rank_name %></b></div></section>
+<section class="info-card"><span class="rank">🏆 <%= lib.rank_name %> • <%= lib.score %> Puan</span><h1><%= lib.name %></h1><p><%= lib.about %></p><div class="button-row"><a href="/<%= lib.slug %>/events" class="btn">Etkinlik Başvurusu</a><a href="/<%= lib.slug %>/games" class="btn ghost">Kütüphanemizi Keşfet</a></div></section>
+<section class="three"><div><h3>Kütüphanemiz Hakkında</h3><p><%= lib.about %></p></div><div><h3>Çalışma Saatleri / İletişim</h3><p><%= lib.working_hours %><br><%= lib.phone %><br><%= lib.email %></p></div><div><h3>Rakamlarla Biz</h3><p><%= events.length %> aktif etkinlik<br><%= games.length %> zeka oyunu<br><%= lib.score %> platform puanı</p></div></section>
+<section class="section-head"><h2>Yaklaşan Etkinlikler</h2><a href="/<%= lib.slug %>/events">Tümünü Gör</a></section><div class="event-grid"><% events.forEach(e => { %><article class="event-card"><div class="event-poster">📅</div><span><%= e.category %></span><h3><%= e.title %></h3><p><%= e.event_date %> • <%= e.event_time %></p></article><% }) %></div>
+</main><%- include("partials/footer") %>

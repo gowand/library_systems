@@ -1,0 +1,6 @@
+<%- include("partials/header", {title:"Dijital Kütüphane Platformu"}) %><%- include("partials/nav") %>
+<main class="container">
+  <section class="home-hero"><div><span class="eyebrow">1000+ kütüphane için ölçeklenebilir yapı</span><h1>Dijital Kütüphane Etkinlik, Arşiv ve Zeka Oyunları Platformu</h1><p>Her kütüphane kendi sayfasını, etkinliklerini, oyunlarını, anketlerini ve arşivini yönetir. Veriler kütüphaneye göre izole edilir.</p><form class="searchbar" method="get"><input name="q" value="<%= q %>" placeholder="Kütüphane adı veya slug ara"><button>Ara</button></form></div><div class="hero-card"><b>Enterprise Demo</b><div class="big-number"><%= stats.libraries %></div><small>Onaylı kütüphane</small><div class="mini-grid"><span><b><%= stats.events %></b> Etkinlik</span><span><b><%= stats.games %></b> Oyun</span></div></div></section>
+  <section class="section-head"><h2>Onaylı Kütüphaneler</h2><p>Ana sayfada tüm etkinlikler gösterilmez; sadece kütüphane keşfi ve sistem bilgisi vardır.</p></section>
+  <div class="library-grid"><% libraries.forEach(lib => { %><a class="library-card" href="/<%= lib.slug %>"><div class="card-banner"></div><div class="card-body"><span class="rank"><%= lib.rank_name %> • <%= lib.score %> Puan</span><h3><%= lib.name %></h3><p><%= lib.address %></p></div></a><% }) %></div>
+</main><%- include("partials/footer") %>
